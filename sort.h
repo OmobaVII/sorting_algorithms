@@ -1,12 +1,15 @@
 #ifndef __SORT_H__
 #define __SORT_H__
 #include <stdlib.h>
-/** struct listint_S - Doubly linked list node
+
+/**
+ * struct listint_s - Doubly linked list node
  *
- * @n: INteger stored in the node
+ * @n: Integer stored in the node
  * @prev: pointer to the previous element of the list
- * @next Pointer to the next element of the list
+ * @next: Pointer to the next element of the list
  */
+
 typedef struct listint_s
 {
 	const int n;
