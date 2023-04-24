@@ -21,7 +21,7 @@ void shell_sort(int *array, size_t size)
 	}
 	gap = (gap - 1) / 3;
 	while (gap > 0)
-	{	
+	{
 		for (a = gap; a < size; a++)
 		{
 			tmp = array[a];
@@ -34,5 +34,5 @@ void shell_sort(int *array, size_t size)
 		print_array(array, size);
 		gap = (gap - 1) / 3;
 	}
-	
+
 }
