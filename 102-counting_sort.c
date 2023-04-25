@@ -36,7 +36,7 @@ void counting_sort(int *array, size_t size)
 		return;
 		free(counting_sort);
 	}
-	for (a = size - 1; a >= 0; a--)
+	for (a = 0; (size_t)a < size; a++)
 	{
 		sorted_array[counting_sort[array[a]] - 1] = array[a];
 		counting_sort[array[a]]--;
