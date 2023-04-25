@@ -33,8 +33,8 @@ void counting_sort(int *array, size_t size)
 	sorted_array = (int *) malloc(size * sizeof(int));
 	if (sorted_array == NULL)
 	{
-		return;
 		free(counting_sort);
+		return;
 	}
 	for (a = 0; (size_t)a < size; a++)
 	{
