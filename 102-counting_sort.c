@@ -22,7 +22,7 @@ void counting_sort(int *array, size_t size)
 	counting_sort = (int *)_calloc((k + 1), sizeof(int));
 	if (counting_sort == NULL)
 		return;
-	for (a = 0; (size_t)a < size; a++)
+	for ((size_t)a = 0; a < size; a++)
 	{
 		counting_sort[array[a]]++;
 	}
@@ -36,18 +36,17 @@ void counting_sort(int *array, size_t size)
 		free(counting_sort);
 		return;
 	}
-	for (a = 0; (size_t)a < size; a++)
+	for ((size_t)a = 0; a < size; a++)
 	{
 		sorted_array[counting_sort[array[a]] - 1] = array[a];
 		counting_sort[array[a]]--;
 	}
-	for (a = 0; (size_t)a < size; a++)
+	for ((size_t)a = 0; a < size; a++)
 	{
 		array[a] = sorted_array[a];
 	}
 	free(counting_sort);
 	free(sorted_array);
-	counting_sort = sorted_array = NULL;
 }
 /**
  * _calloc - custom calloc function
