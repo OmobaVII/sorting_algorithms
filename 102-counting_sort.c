@@ -46,7 +46,6 @@ void counting_sort(int *array, size_t size)
 	}
 	free(counting_sort);
 	free(sorted_array);
-	counting_sort = sorted_array = 0;
 }
 /**
  * _calloc - custom calloc function
