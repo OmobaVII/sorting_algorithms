@@ -17,25 +17,24 @@ void counting_sort(int *array, size_t size)
 	for (a = 1; (size_t)a < size; a++)
 	{
 		if (array[a] > k)
-		{
 			k = array[a];
-		}
 	}
 	counting_sort = (int *)_calloc((k + 1), sizeof(int));
+	if (counting_sort == NULL)
+		return;
 	for (a = 0; (size_t)a < size; a++)
 	{
 		counting_sort[array[a]]++;
 	}
 	for (a = 1; a <= k; a++)
-	{
 		counting_sort[a] += counting_sort[a - 1];
-	}
 	print_array(counting_sort, k + 1);
 
 	sorted_array = (int *) malloc(size * sizeof(int));
 	if (sorted_array == NULL)
 	{
 		return;
+		free(counting_sort);
 	}
 	for (a = size - 1; a >= 0; a--)
 	{
