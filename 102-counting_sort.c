@@ -8,13 +8,14 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int a, k = array[0];
+	size_t a; 
+	int k = array[0];
 	int *sorted_array, *counting_sort;
 
 	if (array == NULL || size <= 1)
 		return;
 
-	for (a = 1; (size_t)a < size; a++)
+	for (a = 1; a < size; a++)
 	{
 		if (array[a] > k)
 			k = array[a];
@@ -22,11 +23,11 @@ void counting_sort(int *array, size_t size)
 	counting_sort = (int *)_calloc((k + 1), sizeof(int));
 	if (counting_sort == NULL)
 		return;
-	for ((size_t)a = 0; a < size; a++)
+	for (a = 0; a < size; a++)
 	{
 		counting_sort[array[a]]++;
 	}
-	for (a = 1; a <= k; a++)
+	for (a = 1; (int)a <= k; a++)
 		counting_sort[a] += counting_sort[a - 1];
 	print_array(counting_sort, k + 1);
 
@@ -36,12 +37,12 @@ void counting_sort(int *array, size_t size)
 		free(counting_sort);
 		return;
 	}
-	for ((size_t)a = 0; a < size; a++)
+	for (a = 0; a < size; a++)
 	{
 		sorted_array[counting_sort[array[a]] - 1] = array[a];
 		counting_sort[array[a]]--;
 	}
-	for ((size_t)a = 0; a < size; a++)
+	for (a = 0; a < size; a++)
 	{
 		array[a] = sorted_array[a];
 	}
