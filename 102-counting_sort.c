@@ -19,23 +19,21 @@ void counting_sort(int *array, size_t size)
 		if (array[a] > k)
 			k = array[a];
 	}
-	counting_sort = (int *)malloc((k + 1) * sizeof(int));
-	if (counting_sort == NULL)
+	sorted_array = (int *)malloc(size * sizeof(int));
+	if (sorted_array == NULL)
 		return;
-	for (a = 0; (int)a < (k + 1); a++)
-		counting_sort[a] = 0;
+	counting_sort = (int *)_calloc((k + 1), sizeof(int));
+	if (counting_sort == NULL)
+	{
+		free(sorted_array);
+		return;
+	}
 	for (a = 0; a < size; a++)
 		counting_sort[array[a]]++;
 	for (a = 1; (int)a <= k; a++)
 		counting_sort[a] += counting_sort[a - 1];
 	print_array(counting_sort, k + 1);
 
-	sorted_array = (int *) malloc(size * sizeof(int));
-	if (sorted_array == NULL)
-	{
-		free(counting_sort);
-		return;
-	}
 	for (a = 0; a < size; a++)
 	{
 		sorted_array[counting_sort[array[a]] - 1] = array[a];
